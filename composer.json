@@ -1,0 +1,14 @@
+{
+    "name": "c0b41/mng",
+    "description": "Laravel Mng Service Provider",
+    "type": "laravel",
+    "license": "MIt",
+    "authors": [
+        {
+            "name": "ayhankuru",
+            "email": "ayhankuru@yandex.com.tr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
