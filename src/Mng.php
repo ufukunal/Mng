@@ -20,14 +20,14 @@ class Mng {
 
   }
 
- 
+
   function CreateShipment($params){
 
     try {
 
-      $CreateShipmentData = $this->client->SiparisGirisiDetayliV2(
-        array_push($params, array("pKullaniciAdi" => $this->conf['username'],
-              "pSifre" => $this->conf['password'])));
+      $data = array('parameters' => array_merge($params, array("pKullaniciAdi" => $this->conf['username'],
+            "pSifre" => $this->conf['password'])));
+      $CreateShipmentData = $this->client->SiparisGirisiDetayliV2($data);
 
       if(!empty($CreateShipmentData->SiparisGirisiDetayliV2Result)){
         return $CreateShipmentData->SiparisGirisiDetayliV2Result;
