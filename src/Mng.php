@@ -29,8 +29,13 @@ class Mng {
             "pSifre" => $this->conf['password'])));
       $CreateShipmentData = $this->client->SiparisGirisiDetayliV2($data);
 
-      if(!empty($CreateShipmentData->SiparisGirisiDetayliV2Result)){
-        return $CreateShipmentData->SiparisGirisiDetayliV2Result;
+      $response = $CreateShipmentData->SiparisGirisiDetayliV2Result
+      if(!empty($response)){
+        if(count(explode(':', $response)) <= 0){
+          return $data['pChIrsaliyeNo'];
+        } else {
+          throw new MngException("Kargo Bilgileri Aktarımı Yapılamadı!". $response);
+        }
       } else {
         throw new MngException("Gönderdiğiniz parametreleri kontrol ediniz!");
       }
